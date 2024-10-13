@@ -6,9 +6,7 @@ public class Problem : MonoBehaviour
 {
     public bool AlreadyIn;
     public string AlreadyInBlockSetName;
-    public GameManager gameManager;
     private MeshRenderer meshRenderer;
-
     public AudioSource audioSource;
     public AudioClip audioClip;
     // Start is called before the first frame update
@@ -25,8 +23,6 @@ public class Problem : MonoBehaviour
     }
 
 
-
-
     void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Block")
@@ -34,8 +30,7 @@ public class Problem : MonoBehaviour
             if (AlreadyIn == false)
             {
                 SoundPlay();
-                //meshRenderer.materials[0].color = new Color(0, 0, 1, 0.5f);
-                gameManager.StagePoint += 1;
+                GameManager.Instance.StagePoint += 1;
                 AlreadyIn = true;
                 AlreadyInBlockSetName = collision.gameObject.transform.parent.name;
             }
@@ -45,8 +40,7 @@ public class Problem : MonoBehaviour
     {
         if (collision.gameObject.tag == "Block" && collision.gameObject.transform.parent.name == AlreadyInBlockSetName)
         {
-            //meshRenderer.materials[0].color = new Color(1, 1, 1, 0.1f);
-            gameManager.StagePoint -= 1;
+            GameManager.Instance.StagePoint -= 1;
             AlreadyIn = false;
         }
     }

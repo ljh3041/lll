@@ -5,8 +5,10 @@ using UnityEngine;
 public class Block_Skin_Move : MonoBehaviour
 {
     // Start is called before the first frame update
-    float rotSpeed = 50f;
-    float time;
+    [SerializeField]
+    private float rotationSpeed = 50f;
+    
+    private float time;
     void Start()
     {
         
@@ -17,7 +19,7 @@ public class Block_Skin_Move : MonoBehaviour
     {
         time += Time.deltaTime;
         time %= 360;
-        transform.Rotate(new Vector3(0, rotSpeed * Time.deltaTime, 0));
-        transform.Translate(new Vector3(0, 0.00001f*Mathf.Sin(time)*500, 0));
+        transform.Rotate(new Vector3(0, rotationSpeed * Time.deltaTime, 0));
+        transform.Translate(new Vector3(0, 0.003f*Mathf.Sin(time), 0));
     }
 }

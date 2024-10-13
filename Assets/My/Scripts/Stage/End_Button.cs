@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using TMPro;
 public class End_Button : MonoBehaviour
 {
-    public GameManager gameManager;
     public Problem[] problems;
     public Button button;
     public Block_Set[] blocks;
@@ -24,8 +23,6 @@ public class End_Button : MonoBehaviour
         {
             End_Stage();
         }
-        
-        
     }
 
     void End_Stage()
@@ -45,19 +42,10 @@ public class End_Button : MonoBehaviour
             block.transform.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             block.transform.GetComponent<Rigidbody>().useGravity = false;
             block.transform.rotation = Quaternion.Euler(block.rotate_x, block.rotate_y, block.rotate_z);
-            //smoothDamp 방식, 이게 조금 더 유리함.
             Vector3 target = new Vector3(block.pos_x, block.pos_y, block.pos_z);
             Vector3 speed = Vector3.zero;
             block.transform.position = Vector3.SmoothDamp(block.transform.position, target, ref speed, 0.1f);
-            //MoveToward 방식
-            //float speed = 5f;
-            //block.transform.position = Vector3.MoveTowards(block.transform.position, target, speed * Time.deltaTime);
-
         }
-
-        
-        //gameManager.StagePoint = gameManager.goal_Point;
-        
     }
     void TurnOffCollider()
     {
@@ -74,6 +62,5 @@ public class End_Button : MonoBehaviour
             problem.GetComponent<BoxCollider>().enabled = true;
         }
         button_On = false;
-
     }
 }

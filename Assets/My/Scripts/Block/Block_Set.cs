@@ -40,7 +40,6 @@ public class Block_Set : MonoBehaviour
                 }
 
             }
-            
         }
 
         if (isIn == false)

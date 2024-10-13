@@ -7,7 +7,6 @@ using TMPro;
 
 public class Main_Button : MonoBehaviour
 {
-    
     public Button Next_Button;
     public string Next_Scene_name;
 

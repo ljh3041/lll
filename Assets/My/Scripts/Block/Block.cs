@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,13 +12,16 @@ public class Block : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
-        
         rigid = GetComponent<Rigidbody>();
         spherecollider = GetComponent<SphereCollider>();
         boxcollider = GetComponent<BoxCollider>();
     }
     // Update is called once per frame
-
+    private void Start()
+    {
+        this.gameObject.GetComponent<MeshRenderer>().material =
+            Block_Skin.Instance.GetBlockSkin;
+    }
 
     public void SetLayerRecursively(Transform transform, int layer_number)
     {
@@ -27,10 +31,6 @@ public class Block : MonoBehaviour
             child.gameObject.layer = layer_number;
         }
     }
-
-
-
-    
 
     Vector3 dir = new Vector3(0, 0, 0);
     void OnTriggerEnter(Collider collision)

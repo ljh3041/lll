@@ -110,4 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d198aa71189b6468c0308eccca81d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
+  AlreadyIn: 0
+  AlreadyInBlockSetName: 
+  material: {fileID: 2100000, guid: f76aabab261d32a478397fe90c2c0848, type: 2}
+  materialTriggered: {fileID: 2100000, guid: 0319f690f5a312a40ab747a08072a7c3, type: 2}
+  audioSource: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 9d0113dd16699ce4ea3c58dd422fdc1f, type: 3}
